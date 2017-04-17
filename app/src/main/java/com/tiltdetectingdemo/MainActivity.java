@@ -9,7 +9,6 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,7 +16,6 @@ import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
@@ -54,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     @Override
                     public void onGlobalLayout() {
                         // Get ImageView height width here <------------
-                        if(forFirstTimeOnly){
+                        if (forFirstTimeOnly) {
                             int scrollX = (image.getLeft() - (getDeviceWidth(MainActivity.this) / 2)) + (image.getWidth() / 2);
                             horizontal_sv.smoothScrollTo(scrollX, 0);
                             forFirstTimeOnly = false;
@@ -81,13 +79,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 //                image.setImageResource(R.drawable.right);
             textView.setText("You tilt the device right");
 //                horizontal_sv.scrollTo((horizontal_sv.getChildAt(0).getWidth()) / 4 , (int)y);
-            horizontal_sv.scrollTo((((int)horizontal_sv.getScrollX()) - 30) , (int)y);
+            horizontal_sv.scrollTo((((int) horizontal_sv.getScrollX()) - 30), (int) y);
         }
         if (x > 0) {
 //                image.setImageResource(R.drawable.left);
             textView.setText("You tilt the device left");
 //                horizontal_sv.scrollTo((horizontal_sv.getChildAt(0).getWidth()) / 4 , (int)y);
-            horizontal_sv.scrollTo((((int)horizontal_sv.getScrollX()) + 30) , (int)y);
+            horizontal_sv.scrollTo((((int) horizontal_sv.getScrollX()) + 30), (int) y);
         }
 
       /*  if (Math.abs(x) > Math.abs(y)) {
